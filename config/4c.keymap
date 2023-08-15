@@ -73,7 +73,7 @@
             >;
         };
 
-        layer_4 {
+        NAV {
             bindings = <
 &trans  &trans            &trans     &trans        &trans  &trans    &trans    &trans          &trans        &trans     &trans  &trans
 &trans  &trans            &trans     &trans        &trans  &trans    &trans    &trans          &trans        &trans     &trans  &trans

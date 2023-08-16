@@ -23,7 +23,7 @@
         };
 
         numLay {
-            bindings = <&mo 3>;
+            bindings = <&sl 3>;
             key-positions = <48 56>;
         };
     };

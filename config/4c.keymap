@@ -18,8 +18,13 @@
         compatible = "zmk,combos";
 
         btMo {
-            bindings = <&mo 4>;
+            bindings = <&mo 6>;
             key-positions = <56 57>;
+        };
+
+        toGame {
+            bindings = <&to 4>;
+            key-positions = <51 54>;
         };
     };
 
@@ -38,6 +43,18 @@
             #binding-cells = <0>;
             bindings = <&kp LALT &kp F4>;
         };
+        ctrl_alt_del: ctrl_alt_del {
+            compatible = "zmk,behavior-macro";
+            label = "CTRL_ALT_DEL";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LEFT_ALT &kp DEL>;
+        };
+        win_screenshot: win_screenshot {
+            compatible = "zmk,behavior-macro";
+            label = "WIN_SCREENSHOT";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp PRINTSCREEN>;
+        };
     };
 
     keymap {
@@ -45,11 +62,11 @@
 
         BASE {
             bindings = <
-            &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &kp BACKSLASH
-              &kp TAB         &kp Q         &kp W         &kp E          &kp R         &kp T           &kp Y         &kp U         &kp I                  &kp O         &kp P  &kp BACKSPACE
-     &mt LCTRL ESCAPE         &kp A         &kp S         &kp D          &kp F         &kp G           &kp H         &kp J         &kp K                  &kp L      &kp SEMI       &kp APOS
-       &kp LEFT_SHIFT         &kp Z         &kp X         &kp C          &kp V         &kp B           &kp N         &kp M     &kp COMMA             &kp PERIOD     &kp SLASH      &kp EQUAL
-&mt LEFT_ALT LEFT_GUI         &mo 2     &kp SPACE         &mo 3  &kp BACKSPACE                                  &kp DELETE         &mo 3  &mt RIGHT_SHIFT ENTER         &mo 1    &key_repeat
+            &kp GRAVE  &kp NUMBER_1          &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &kp BACKSLASH
+              &kp TAB         &kp Q                 &kp W         &kp E          &kp R         &kp T           &kp Y         &kp U         &kp I                  &kp O         &kp P  &kp BACKSPACE
+     &mt LCTRL ESCAPE         &kp A                 &kp S         &kp D          &kp F         &kp G           &kp H         &kp J         &kp K                  &kp L      &kp SEMI       &kp APOS
+       &kp LEFT_SHIFT         &kp Z                 &kp X         &kp C          &kp V         &kp B           &kp N         &kp M     &kp COMMA             &kp PERIOD     &kp SLASH      &kp EQUAL
+&mt LEFT_ALT LEFT_GUI         &mo 2  &mt LEFT_SHIFT SPACE         &mo 3  &kp BACKSPACE                                  &kp DELETE         &mo 3  &mt RIGHT_SHIFT ENTER         &mo 1    &key_repeat
             >;
 
             label = "Base";
@@ -89,6 +106,30 @@
             >;
 
             label = "Numbers";
+        };
+
+        GAME {
+            bindings = <
+           &none         &none      &none  &none          &none  &none    &none  &none      &none      &none     &none  &none
+         &kp TAB         &kp Q      &kp W  &kp E          &kp R  &kp T    &kp Y  &kp U      &kp I      &kp O     &kp P  &none
+      &kp ESCAPE         &kp A      &kp S  &kp D          &kp F  &sl 5    &kp H  &kp J      &kp K      &kp L  &kp SEMI  &none
+       &kp LSHFT         &kp Z      &kp X  &kp C          &kp V  &kp B    &kp N  &kp M  &kp COMMA    &kp DOT  &kp FSLH  &none
+&kp LEFT_CONTROL  &kp LEFT_ALT  &kp SPACE  &none  &kp BACKSPACE                  &none      &none  &kp ENTER     &none  &none
+            >;
+
+            label = "Game";
+        };
+
+        GAME+ {
+            bindings = <
+ &trans  &trans  &trans   &trans  &trans        &trans    &trans         &trans   &trans        &trans           &trans  &trans
+ &kp F9  &kp N1  &kp N2   &kp N3  &kp N4        &kp N5    &kp F5         &trans   &trans        &trans           &trans  &trans
+&kp TAB   &kp K   &kp L    &kp O   &kp P         &kp G    &trans         &trans   &trans        &trans           &trans  &trans
+  &to 0  &trans  &trans    &kp Y   &kp Y  &kp NUMBER_6    &trans         &trans   &trans        &trans           &trans  &trans
+  &kp J   &kp I   &kp M  &kp F12  &trans                          &ctrl_alt_del  &alt_f4  &kp LEFT_GUI  &win_screenshot  &trans
+            >;
+
+            label = "Game+";
         };
 
         BT {

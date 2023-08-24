@@ -13,6 +13,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+&mt {
+    tapping-term-ms = <200>;
+    quick-tap-term = <180>;
+    flavor = "tap-preferred";
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -81,11 +87,6 @@
 
     keymap {
         compatible = "zmk,keymap";
-        &mt {
-            tapping-term-ms = <200>;
-            quick-tap-term = <180>;
-            flavor = "tap-preferred";
-        };
 
         BASE {
             bindings = <
